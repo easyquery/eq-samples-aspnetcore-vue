@@ -2,16 +2,16 @@ using System;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 using VueCliMiddleware;
 
 using Korzh.EasyQuery.Services;
 
-namespace EqVueDemo
+namespace EqDemo
 {
     public class Startup
     {
@@ -25,6 +25,10 @@ namespace EqVueDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("EqDemoDb"));
+            });
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "AllowAllPolicy",
@@ -68,12 +72,19 @@ namespace EqVueDemo
                 app.UseSpaStaticFiles();
             }
 
-            app.UseEasyQuery(options => 
-            {
-                options.DefaultModelId = "NWindSQL";
-                options.UseQueryStore(services => new FileQueryStore("App_Data"));
-                options.UseDbConnection<System.Data.SqlClient.SqlConnection>(Configuration.GetConnectionString("EqDemoDb"));
+            app.UseEasyQuery(options => {
+                options.DefaultModelId = "nwind";
+
+                options.SaveNewQuery = false;
+
+                options.UseDbContext<AppDbContext>();
+
+                // Uncomment if you want to donwload model directly from DB
+                // options.UseDbConnectionModelLoader();
+
+                options.UseQueryStore((_) => new FileQueryStore("App_Data"));
             });
+
 
             app.UseRouting();
 
@@ -100,9 +111,8 @@ namespace EqVueDemo
             });
 
 
-            var scriptFilePath = "App_Data\\EqDemoDb.sql";
-            var dbInit = new EqVueDemo.Data.DbInitializer(Configuration, "EqDemoDb", scriptFilePath);
-            dbInit.EnsureCreated();
+            //Init demo database (if necessary)
+            app.EnsureDbInitialized(Configuration, env);
         }
     }
 }

@@ -93,7 +93,7 @@
                     </div>
                     <div id="eqv-footer">
                         <div class="eqv-copyright">
-                            (c) Copyright 2006-2020 <a href="https://korzh.com/" target="_blank">Korzh.com</a>
+                            (c) Copyright 2006-2021 <a href="https://korzh.com/" target="_blank">Korzh.com</a>
                         </div>
                         <div class="power-by">
                             Powered by <a href="https://korzh.com/easyquery" target="_blank">EasyQuery</a>
@@ -125,16 +125,14 @@
             const viewOptions: EqViewOptions = {
                 enableExport: true,
                 loadModelOnStart: true,
-                loadQueryOnStart: false,
-                defaultQueryId: 'test-query',
-                defaultModelId: 'NWindSQL',
+           
 
                 //Middlewares endpoint
                 endpoint: '/api/easyquery',
 
                 handlers: {
                     onError: (error) => {
-                        // console.error(error.action + ' error:\n' + error.text);
+                        console.error(error.action + ' error:\n' + error.text);
                     }
                 },
                 widgets: {
@@ -182,10 +180,6 @@
                     showChart: true,
                 },
             };
-
-            this.view.getContext().useEnterprise(() => {
-                this.view.init(options);
-            });
 
             this.view = new AdvancedSearchView();
             this.context = this.view.getContext();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EqVueDemo.Pages
+namespace EqDemo.Pages
 {
     public class ErrorModel : PageModel
     {

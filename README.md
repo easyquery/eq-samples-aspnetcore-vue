@@ -32,10 +32,9 @@ EasyQuery version, change it there.
 
 ## License key
 
-EasyQuery needs a license key. A free 30-day trial key takes about a minute to get:
-[register on korzh.com](https://korzh.com/easyquery?utm_source=github&utm_medium=sample&utm_campaign=eq-samples-aspnetcore-vue#get-started).
+EasyQuery needs a license key. On the first run you will be presented with a dialog that allows you to get a trial key for 30 days or get your current key automatically if you have a license already.
 
-Put it into `appsettings.json` of the app that serves the EasyQuery API:
+The key is saved to the EasyQuery.lck file but you can also put it into `appsettings.json` of the app that serves the EasyQuery API:
 
 ```json
 "EasyQuery": {

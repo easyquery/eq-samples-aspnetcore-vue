@@ -9,8 +9,8 @@ to .NET applications. The samples in this repository show it on ASP.NET Core + V
 
 | Sample | Scenario | Stack |
 |---|---|---|
-| [Advanced search (Vue 3)](Vue3) | Advanced search | ASP.NET Core 6 · Vue 3 · C#, TypeScript |
-| [Advanced search (Vue 2)](Vue2) | Advanced search | ASP.NET Core 6 · Vue 2 · C#, TypeScript |
+| [Advanced search (Vue 3)](Vue3) | Advanced search | ASP.NET Core 10 · Vue 3 · C#, TypeScript |
+| [Advanced search (Vue 2)](Vue2) | Advanced search | ASP.NET Core 10 · Vue 2 · C#, TypeScript |
 
 * **Advanced search.** A full-page query builder: users pick the columns, combine any conditions they need, run the query and work with the result — sorting, paging and export.
 

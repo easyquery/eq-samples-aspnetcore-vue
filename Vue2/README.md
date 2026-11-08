@@ -8,7 +8,7 @@ Part of [EasyQuery samples for ASP.NET Core + Vue](../README.md).
 
 | | |
 |---|---|
-| Host | ASP.NET Core 6 |
+| Host | ASP.NET Core 10 |
 | UI | Vue 2 |
 | Language | C#, TypeScript |
 | EasyQuery | 7.5.0 — `Korzh.EasyQuery.SqLiteGate`, `Korzh.EasyQuery.AspNetCore`, `Korzh.EasyQuery.EntityFrameworkCore.Relational`, `Korzh.EasyQuery.SqlServerGate`, `Korzh.EasyQuery.DataExport` |
@@ -18,7 +18,7 @@ Part of [EasyQuery samples for ASP.NET Core + Vue](../README.md).
 
 ## Prerequisites
 
-* [.NET 6 SDK](https://dotnet.microsoft.com/download)
+* [.NET 10 SDK](https://dotnet.microsoft.com/download)
 * [Node.js](https://nodejs.org/) (LTS)
 * Visual Studio 2022 17.2 or later, VS Code or any other editor (optional)
 * SQL Server Express LocalDB (installed with Visual Studio)
